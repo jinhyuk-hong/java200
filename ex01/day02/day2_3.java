@@ -11,6 +11,8 @@ public class day2_3 {
 		double phy=bio.getBioRhythm(days, PHYSICAL, 100);
 		System.out.printf("나의 신체지수는 %1$.2f\n",phy);
 		
+		
+		
 
 	}
 
