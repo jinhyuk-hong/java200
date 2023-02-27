@@ -1,5 +1,6 @@
 package java200.ex01.day16;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 
 public class day16_1 {
@@ -22,7 +23,7 @@ public class day16_1 {
 		}
 		return s;
 	}
-	public static String teRe(String msg) {
+	public static String toRe(String msg) {
 		String s="";
 		if(msg.indexOf("[")!=-1) {
 			if(msg.contains("[C")) {
@@ -54,9 +55,35 @@ public class day16_1 {
 				if(me.getModifiers()>4000) {continue;}
 				System.out.printf("%s\t\t",toModi(me.getModifiers()));
 				System.out.printf("%-30s\t\t",toRe(me.getReturnType().toString()));
-				System.out.printf("%s");
+				System.out.printf("%s",me.getName());
+				System.out.printf("(","");
+				Class[]aa=me.getParameterTypes();
+				for(int j=0; j<aa.length; j++) {
+					System.out.printf("%s",toRe(aa[j].getName()));
+					if(j!=aa.length-1) {
+						System.out.println(",");
+					}
+				}
+				System.out.printf(")","");
+				System.out.println();
 			}
-			
-		}
+			System.out.println("----------持失切 達奄----------");
+			Constructor[]constructor = classes.getDeclaredConstructors();
+			for(Constructor con: constructor) {
+				System.out.printf(con.getName());
+				System.out.printf("(","");
+				Class[]aa=con.getParameterTypes();
+				for(int j=0; j<aa.length; j++) {
+					System.out.printf("%s",toRe(aa[j].getName()));
+					if(j!=aa.length-1) {
+						System.out.printf(",");
+					}
+				}
+				System.out.printf(")","");
+				System.out.println();
+			}
+			}catch(ClassNotFoundException e) {
+				System.out.println(e);
+			}
 	}
 }
