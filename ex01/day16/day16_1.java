@@ -84,6 +84,7 @@ public class day16_1 {
 			}
 			}catch(ClassNotFoundException e) {
 				System.out.println(e);
+			
 			}
 	}
 }
