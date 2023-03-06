@@ -18,6 +18,7 @@ public class day19_1 {
 			b[2]=b3;
 			showAbout(b[0],b[1]);
 			showAbout(b);
+	}
 			public static void showAbout(day18_1 bb) {
 				System.out.println("1-------------");
 				String sf=String.format("%d,%s,%d,%s,%s", bb.getRank(),bb.getSong(),bb.getLastweek(),bb.getImagesrc(),bb.getArtist());
@@ -30,5 +31,6 @@ public class day19_1 {
 				}
 			System.out.println("<==================2");
 	}
-
 }
+
+
