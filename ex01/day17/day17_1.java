@@ -10,7 +10,7 @@ public class day17_1 {
 ;
 		String artist="luis fonsi";
 		String st=String.format("%d,%s, %d, %s, %s",rank, song,lastweek,imagesrc, artist);
-		System.out.println(sf);)
+		System.out.println(sf);
 	}
 
 }
