@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import java200.ex01.day23.day23_1;
 import java200.ex01.day24.day24_1;
 import java200.ex01.day25.day25_1;
 
@@ -48,9 +49,9 @@ public class day27_2 {
 		}
 	}
 	public void sort() {
-		cards.sort(cards,new day27_1());
+		cards.sort(new day27_1());
 	}
 	public void rsort() {
-		cards.sort(cards,new day27_3());
+		cards.sort(new day27_3());
 	}
 }

@@ -2,14 +2,14 @@ package java200.ex01.day27;
 
 import java.util.Comparator;
 
-import java200.ex01.day23.day23_1;
 import java200.ex01.day24.day24_1;
+import java200.ex01.day25.day25_1;
 
 
-public class day27_1 implements Comparator<day23_1>{
+public class day27_1 implements Comparator<day25_1>{
 
 	@Override
-	public int compare(day23_1 c1, day23_1 c2) {
+	public int compare(day25_1 c1, day25_1 c2) {
 		if(c1.getCardVal().charAt(0)>c2.getCardVal().charAt(0)) {
 			return 1;
 		}else if(c1.getCardVal().charAt(0)<c2.getCardVal().charAt(0)) {
