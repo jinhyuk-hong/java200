@@ -55,7 +55,7 @@ public class Sutda {
 			System.out.printf(cc2[0]+" "+cc2[1]);
 			System.out.println(rule.rule(cc2[0], cc2[1]));
 			System.out.println("WelCome To SutDa"+new Date()+"!!");
-			System.out.println("DoYou Want to replay again(Y/n!!");
+			System.out.println("DoYou Want to replay again(Y/n)!!");
 			ss = scan.next();
 			
 		}while((ss.toUpperCase()).equalsIgnoreCase("Y"));
