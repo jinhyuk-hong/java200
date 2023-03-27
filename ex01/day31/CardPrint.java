@@ -11,6 +11,9 @@ public class CardPrint {
 	private int TotalDealer;
 	
 	public CardPrint() {}
+	public void make() {
+		cc.make();
+	}
 	public void shuffle() {
 		cc.shuffle();
 	}
