@@ -40,4 +40,13 @@ public class FourMagicSquare {
 			magic[i/n][i%n]=i+1;
 		}
 	}
+	public void print() {
+		System.out.println();
+		for(int i=0; i<n; i++) {
+			for(int j=0; j<n; j++) {
+				System.out.printf(magic[i][j]+"\t");
+			}
+			System.out.println();
+		}
+	}
 }
