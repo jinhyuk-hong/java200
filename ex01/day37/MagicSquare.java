@@ -11,9 +11,7 @@ public class MagicSquare implements IMagicSquare {
 		magic = new int[n][n];
 		this.n = n;
 	}
-	public MagicSquare() {
-		this(3);
-	}
+	
 	public void make() {
 		int x=0;
 		int y=n/2;
@@ -38,11 +36,23 @@ public class MagicSquare implements IMagicSquare {
 	}
 	public void print() {
 		System.out.println();
+		System.out.println(n+ "is magic:"+isMasic());
 		for(int i=0; i<n; i++) {
 			for(int j=0; j<n; j++) {
 				System.out.printf(magic[i][j]+"\t");
 			}
 			System.out.println();
 		}
+	}
+	private boolean isMasic() {
+		boolean isM=true;
+		int[]m=new int[2*n+2];
+		for(int i=0; i<n; i++) {
+			if(m[0]==0 || m[0]!=m[i]){
+				isM=false;
+				break;
+			}
+		}
+		return isM;
 	}
 }

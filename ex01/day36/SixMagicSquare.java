@@ -1,8 +1,9 @@
 package java200.ex01.day36;
 
 import java200.ex01.day33.OddMagicSquare;
+import java200.ex01.day37.IMagicSquare;
 
-public class SixMagicSquare {
+public class SixMagicSquare implements IMagicSquare {
 	private int[][] magic;
 	private int n;
 	
@@ -36,11 +37,11 @@ public class SixMagicSquare {
 	}
 	private void makeB() {
 		for(int i=0; i<n/2; i++) {
-			for(int j=0; j<n/4; j++) {
+			for(int j=0; j<n/2; j++) {
 				magic[i][j+n/2]=1;
 			}
 		}
-		for(int i=0; i<n/2-(n/4-1); i++) {
+		for(int i=0; i<n/2; i++) {
 			for(int j=0; j<n/2-(n/4-1); j++) {
 				magic[i][j+n/2]=2;
 			}
@@ -48,9 +49,14 @@ public class SixMagicSquare {
 	}
 	private void makeCD() {
 		for(int i=0; i<n/2; i++) {
-			for(int j=0; j<n/4; j++) {
+			for(int j=0; j<n/2; j++) {
 				if(magic[i][j]==0) {
 					magic[i+n/2][j]=3;
+				}else {
+					magic[i+n/2][j]=0;
+				}
+				if(magic[i][j+n/2]==1) {
+					magic[i+n/2][j+n/2]=2;
 				}else {
 					magic[i+n/2][j+n/2]=1;
 				}
@@ -80,11 +86,57 @@ public class SixMagicSquare {
 	}
 	public void print() {
 		System.out.println();
+		System.out.println(n+ "is magic:"+isMasic());
 		for(int i=0; i<n; i++) {
 			for(int j=0; j<n; j++) {
 				System.out.printf(magic[i][j]+"\t");
 			}
 			System.out.println();
 		}
+	}
+	private int sumRow(int row) {
+		int tot=0;
+		for(int i=0; i<n; i++) {
+			tot+=magic[row][i];
+		}
+		return tot;
+	}
+	private int sumCol(int col) {
+		int tot=0;
+		for(int i=0; i<n; i++) {
+			tot+=magic[i][col];
+		}
+		return tot;
+	}
+	private int sumDia() {
+		int tot=0;
+		for(int i=0; i<n; i++) {
+			tot+=magic[i][n-1-i];
+		}
+		return tot;
+	}
+	private int sumReverseDia() {
+		int tot=0;
+		for(int i=0; i<n; i++) {
+			tot+=magic[i][i];
+		}
+		return tot;
+	}
+	private boolean isMasic() {
+		boolean isM=true;
+		int[]m=new int[2*n+2];
+		for(int i=0; i<n; i++) {
+			m[i] = sumRow(i);
+			m[i+n] = sumCol(i);
+		}
+		m[2*n]=sumReverseDia();
+		m[2*n+1]=sumDia();
+		for(int i=1; i<m.length; i++) {
+			if(m[0]==0 || m[0]!=m[i]){
+				isM=false;
+				break;
+			}
+		}
+		return isM;
 	}
 }
