@@ -5,7 +5,7 @@ import java200.ex01.day35.FourMagicSquare;
 import java200.ex01.day36.SixMagicSquare;
 import java200.ex01.day37.IMagicSquare;
 
-public class FactoryMagic implements AutoClosable{
+public class FactoryMagic implements AutoCloseable{
 	private static FactoryMagic ins;
 	private FactoryMagic() {}
 	
