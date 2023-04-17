@@ -53,7 +53,7 @@ public class Calendar {
 		
 		int dateOfMonth =(1+total(year, month,1)-1)%7;
 		for(int i=0; i< dateOfMonth; i++) {
-			System.out.println("\t");
+			System.out.printf("\t");
 		}
 		for(int i=1; i<=lastDay(year,month); i++) {
 			System.out.printf("%d\t",i);
