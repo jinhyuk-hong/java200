@@ -7,7 +7,7 @@ import java200.ex01.day39.RestDay;
 
 public class AboutFiles {
 	
-	public void printTree(File ff) {
+	public static void printTree(File ff) {
 		if(ff.exists()) {
 			File[]fd=ff.listFiles();
 			if(fd==null||fd.length==0) {
@@ -31,7 +31,41 @@ public class AboutFiles {
 	}
 	public static void printTree2(File ff) {
 		if(ff.exists()) {
-			File
+			File[]fd=ff.listFiles();
+			if(fd==null||fd.length==0) {
+				return;
+			}else {
+				for(File f:fd) {
+					if(f.isDirectory()) {
+						System.out.println("-------"+f.getAbsolutePath());
+						printTree2(f);
+					}else {
+						aboutFile(f);
+					}
+				}
+			}
+		}
+	}
+	public static void main(String[]args) {
+		File[]fs=File.listRoots();
+		for(File f:fs) {
+			if(f.isDirectory()) {
+				printTree(new File(f.getAbsolutePath()));
+			}
+		}
+		File f= new File("D:\\java");
+		printTree2(f);
+		System.out.println("-----------------------");
+		for(char c = 'A'; c<='Z'; c++) {
+			String dirNames = c+":/";
+			File allDirs = new File(dirNames);
+			if(allDirs.exists()) {
+				long total=(long)allDirs.getTotalSpace();
+				long free =(long)allDirs.getFreeSpace();
+				double used =(double)(1-free*1.0/total)*100;
+				String str=c+":\\디렉토리의 사용량: "+used+"%";
+				System.out.println(str);
+			}
 		}
 	}
 }

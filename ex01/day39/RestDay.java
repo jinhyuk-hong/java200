@@ -2,6 +2,7 @@ package java200.ex01.day39;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class RestDay {
 	public static boolean isRest(Calendar tod) {
@@ -26,5 +27,10 @@ public class RestDay {
 		}
 
 	}
+	public static char[] toStrDate(Date date) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 
 }
