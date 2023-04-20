@@ -14,7 +14,7 @@ public class Lotto6Num {
 		lots=new int[ballNum];
 	}
 	public Lotto6Num() {
-		this(45,7);
+		this(45,6);
 	}
 	public void print() {
 		for(int i =0; i<lots.length; i++) {
