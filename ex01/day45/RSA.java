@@ -1,5 +1,7 @@
 package java200.ex01.day45;
 
+import java.util.ArrayList;
+
 public class RSA {
 	public static final int START = 200;
 	private int p=11;
@@ -27,5 +29,52 @@ public class RSA {
 	}
 	public void makePHIN() {
 		this.phiN=(p-1)*(q-1);
+	}
+	public int getPhiN() {
+		return phiN;
+	}
+	public void makeE() {
+		ArrayList<Integer>
+		es = new ArrayList<Integer>();
+		for(int i = 2; i<phiN; i++) {
+			if(Java200Math.gcd(phiN,i)==1) {
+				es.add(i);
+			}
+		}
+		e=es.get(es.size()-1);
+	}
+	public void makeD() {
+		int count=2;
+		while(!(count*e%phiN==1 &&  count!=e)) {
+			count++;
+		}
+		d=count;
+	}
+	public int toCiph(int m) {
+		int tot=1;
+		for(int i=0; i<e; i++) {
+			tot=(tot*m)%n;
+		}
+		return tot;
+	}
+	public int toUnCiph(int c) {
+		int tot=1;
+		for(int i=0; i<d; i++) {
+			tot=(tot*c)%n;
+		}
+		return tot;
+	}
+	public static void main(String[]args) {
+		RSA aa = new RSA();
+		aa.makeN();
+		aa.makePHIN();
+		aa.makeE();
+		aa.makeD();
+		aa.print();
+		for(int i=65; i<200; i++) {
+			int bbb = aa.toCiph(i);
+			int ccc = aa.toUnCiph(bbb);
+			System.out.println(String.format("%d, %d,%d",i,bbb,ccc));
+		}
 	}
 }

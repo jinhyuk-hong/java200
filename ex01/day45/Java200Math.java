@@ -15,6 +15,17 @@ public class Java200Math {
 		}
 
 	}
+	public static int gcd(int m, int n){
+		if(m==1 || n==1 ){
+			return 1;
+		}else if( m==n){
+			return m;
+		}else if(m>n){
+			return gcd(m-n,n);
+		}else{
+			return gcd(m,n-m);
+		}
+	}
 	public static void main(String[]args) {
 		printAmicable(2,20000);
 		

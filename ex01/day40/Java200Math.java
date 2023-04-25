@@ -1,4 +1,3 @@
-package java200.ex01.day40;
 
 public class Java200Math {
 	public static int sumEach(int n) {
