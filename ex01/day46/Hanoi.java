@@ -17,10 +17,10 @@ public class Hanoi {
 	}
 	public void moveHanoi(int num, char ringA, char ringB, char ringC) {
 		if(num==1) {
-			System.out.println(ringA+"bar쪽에 있던 링이"+ringB+"bar쪽으로 이동");
+			System.out.println(ringA+" bar쪽에 있던 링이"+ringB+" bar쪽으로 이동");
 		}else {
 			moveHanoi(num-1,ringA,ringC,ringB);
-			System.out.println(ringA+"bar쪽에 있던 링이"+ringB+"bar쪽으로 이동");
+			System.out.println(ringA+" bar쪽에 있던 링이"+ringB+" bar쪽으로 이동");
 			moveHanoi(num-1,ringC,ringB,ringA);
 		}
 	}
