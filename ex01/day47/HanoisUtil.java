@@ -11,7 +11,7 @@ public class HanoisUtil {
 			
 		}
 	}
-	public static void showHanoi(int[][]a, char ringA, char ringB,  ) {
+	public static void showHanoi(int[][]a, char ringA, char ringB  ) {
 		int aa=0;
 		int ab=1;
 		switch(ringA) {
